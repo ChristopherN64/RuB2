@@ -8,10 +8,10 @@
 
 void main(int argc, char *argv[])
 {
-    char input[1];
+    char *input;
     while(read(STDIN_FILENO,input,1))
     {
-        input[0]=toupper(input[0]);
+        *input=toupper(*input);
         write(STDOUT_FILENO,input,1);
     }
 

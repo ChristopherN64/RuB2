@@ -50,7 +50,7 @@ int main(int argc, char *args[]) {
       //Nachicht von Kind lesen
       printf("Lese von Pipe\n");
       read(pipeB[0],sReadB,strlen(args[1]));
-      printf("Empfangene Nachicht: %s",sReadB);
+      printf("Empfangene Nachicht: %s\n",sReadB);
 
       wait(NULL);
   }
@@ -67,7 +67,6 @@ int main(int argc, char *args[]) {
       printf("Pipe1 umlegen\n");
       dup2(pipeB[1],STDOUT_FILENO);     //Den Outputkanal von STDOUT auf den Eingang der Nachichtenpipe des Kindprozesses an den Elternprozess umlegen
       execlp("/home/cnieder/CLionProjects/RuB2/Praktikum6/start.sh","start.sh",NULL);
-
   }
   wait(NULL);
   return 0;
